@@ -35,10 +35,10 @@ void createBook(library &lib)
     cin.ignore();
     getline(cin, name);
     cout << "Enter a author for the new book: ";
-    //cin.ignore();
+    // cin.ignore();
     getline(cin, author);
     cout << "Enter a genre for the new book: ";
-    //cin.ignore();
+    // cin.ignore();
     getline(cin, genre);
     cout << "Enter an unique ID for the book: ";
     cin >> id;
@@ -47,12 +47,29 @@ void createBook(library &lib)
     lib.addBook(newBook);
 }
 
+void checkOutBook(library &lib)
+{
+    int patronId = 0;
+    int bookId = 0;
+
+    cout << "Enter Patron ID: ";
+    cin >> patronId;
+    cout << "Enter Book ID: ";
+    cin >> bookId;
+
+//fix this
+    if (lib.getPatronById(patronId) != -1 && lib.getBookById(bookId) != -1)
+    {
+    }
+}
+
 int userChoice()
 {
     int choice = -1;
-    while (choice < 0 || choice > 4)
+    while (choice < 0 || choice > 6)
     {
-        cout << "Enter 1 (add new patron), 2 (add new book), 3 (print all books), 4 (print all patrons), 0 (to end)";
+        cout << "Enter 1 (add new patron), 2 (add new book), 3 (print all books), 4 (print all patrons)\b"
+             << "5 (let customer check out book), 6 (let customer return book), 0 (to end) ";
         cin >> choice;
     }
     return choice;
@@ -77,8 +94,11 @@ int main()
             centerLibrary.printAllBooks();
         else if (choice == 4)
             centerLibrary.printAllPatrons();
-    choice = userChoice();
+        else if (choice == 5)
+
+            choice = userChoice();
     }
-    cout << "Ending Program\n" << endl;
+    cout << "Ending Program\n"
+         << endl;
     return 0;
 }
