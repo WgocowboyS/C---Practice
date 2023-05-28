@@ -23,6 +23,31 @@ vector<patron> library::getAllPatrons()
     return allPatrons;
 }
 
+// returns -1 if not present in list
+patron library::getPatronById(int id)
+{
+    int index = -1;
+    for (int i = 0; i < allPatrons.size(); i++)
+    {
+        if (id == allPatrons[i].getId())
+            index == i;
+    }
+
+    return allPatrons[index];
+}
+
+book library::getBookById(int id)
+{
+    int index = -1;
+    for (int i = 0; i < allLibraryBooks.size(); i++)
+    {
+        if (id == allLibraryBooks[i].getId())
+            index == i;
+    }
+
+    return allLibraryBooks[index];
+}
+
 // set functions
 void library::addBook(book bookToAdd)
 {
@@ -36,7 +61,7 @@ void library::addPatron(patron patronToAdd)
 
 void library::removePatron(patron patronToRemove)
 {
-    int index = 0;
+    int index = -1;
     for (int i = 0; i < allPatrons.size(); i++)
     {
         if (allPatrons[i].getId() == patronToRemove.getId())
@@ -63,7 +88,6 @@ void library::printAllBooks()
     {
         cout << "Book " << i + 1 << ":" << endl;
         allLibraryBooks[i].printBook();
-        
     }
 }
 
@@ -71,7 +95,7 @@ void library::printAllPatrons()
 {
     for (int i = 0; i < allPatrons.size(); i++)
     {
-        cout << "Patron: " << i+1 << endl;
+        cout << "Patron: " << i + 1 << endl;
         allPatrons[i].printPatron();
     }
 }
