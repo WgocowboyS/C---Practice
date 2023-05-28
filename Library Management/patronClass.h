@@ -23,6 +23,7 @@ class patron{
     string getName();
     int getId();
     vector<book> getCheckedOutBooks();
+    void printPatron();
 
     //set functions
     void checkOutBook(book bookToCheckOut);

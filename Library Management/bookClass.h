@@ -30,6 +30,7 @@ class book
     string getGenre();
     bool getStatus();
     int getId();
+    void printBook();
 
     //set functions
     void setStatus(bool Status);

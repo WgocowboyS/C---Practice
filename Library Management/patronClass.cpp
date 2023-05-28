@@ -1,6 +1,7 @@
 #include "patronClass.h"
 #include "bookClass.h"
 #include <vector>
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -49,4 +50,15 @@ void patron::returnBook(book bookToReturn)
     }
     // erase removes the element at the given location
     checkedOutBooks.erase(checkedOutBooks.begin() + index);
+}
+
+void patron::printPatron()
+{
+    cout << "Name: " << name << "\t ID: " << id << endl;
+    cout <<"List of Patrons Books: " << endl;
+    for (int i = 0; i < checkedOutBooks.size(); i++)
+    {
+        cout << "Book: " << i + 1 << endl;
+        checkedOutBooks[i].printBook();
+    }
 }
