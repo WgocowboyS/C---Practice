@@ -1,4 +1,5 @@
 #include "bookClass.h"
+#include <iostream>
 
 using namespace std;
 
@@ -43,4 +44,11 @@ int book::getId()
 void book::setStatus(bool Status)
 {
     checkedOut = Status;
+}
+
+void book::printBook()
+{
+    cout << "Title: " << title << "\tAuthor: " << author
+         << "\tGenre" << genre << "\t Checked Out: " << checkedOut << "\b"
+         << "Book ID: " << id << endl;
 }
