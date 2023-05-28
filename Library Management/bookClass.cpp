@@ -49,6 +49,6 @@ void book::setStatus(bool Status)
 void book::printBook()
 {
     cout << "Title: " << title << "\tAuthor: " << author
-         << "\tGenre" << genre << "\t Checked Out: " << checkedOut << "\b"
+         << "\tGenre: " << genre << "\t Checked Out: " << checkedOut << "\b"
          << "Book ID: " << id << endl;
 }
