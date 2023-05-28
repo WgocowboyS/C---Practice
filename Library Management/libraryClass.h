@@ -22,6 +22,8 @@ class library{
     //get functions
     vector <book> getLibraryBooks();
     vector <patron> getAllPatrons();
+    void printAllBooks();
+    void printAllPatrons();
 
     //sets
     void addBook(book bookToAdd);

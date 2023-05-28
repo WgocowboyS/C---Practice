@@ -2,6 +2,7 @@
 #include "patronClass.h"
 #include "libraryClass.h"
 #include <string>
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -54,4 +55,23 @@ void library::returnBook(book bookToReturn, patron patronWhoReturns)
 {
     bookToReturn.setStatus(false);
     patronWhoReturns.returnBook(bookToReturn);
+}
+
+void library::printAllBooks()
+{
+    for (int i = 0; i < allLibraryBooks.size(); i++)
+    {
+        cout << "Book " << i + 1 << ":" << endl;
+        allLibraryBooks[i].printBook();
+        
+    }
+}
+
+void library::printAllPatrons()
+{
+    for (int i = 0; i < allPatrons.size(); i++)
+    {
+        cout << "Patron: " << i+1 << endl;
+        allPatrons[i].printPatron();
+    }
 }
