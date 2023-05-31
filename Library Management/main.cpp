@@ -57,9 +57,18 @@ void checkOutBook(library &lib)
     cout << "Enter Book ID: ";
     cin >> bookId;
 
-//fix this
-    if (lib.getPatronById(patronId) != -1 && lib.getBookById(bookId) != -1)
+    // get patrons by id, if not present returns a patron with an ID of -1
+    // get books by ID, if not present returns a patron with an ID of -1
+    patron* user = lib.getPatronById(patronId);
+    book* b = lib.getBookById(bookId);
+    if (user != nullptr && b != nullptr)
     {
+        user->checkOutBook(*b);
+        b->setStatus("True");
+        cout << "Customer Successfully Checked out Book" << endl;
+        cout << user->getName() << " Checked Out " << b->getTitle() << endl;
+    }else{
+        cout << "Those Set of ID's Do not Exist " << endl;
     }
 }
 
@@ -68,9 +77,10 @@ int userChoice()
     int choice = -1;
     while (choice < 0 || choice > 6)
     {
-        cout << "Enter 1 (add new patron), 2 (add new book), 3 (print all books), 4 (print all patrons)\b"
-             << "5 (let customer check out book), 6 (let customer return book), 0 (to end) ";
+        cout << "Enter 1 (add new patron), 2 (add new book), 3 (print all books), 4 (print all patrons)\n"
+             << "5 (let customer check out book), 6 (let customer return book), 0 (to end): ";
         cin >> choice;
+        cout << endl;
     }
     return choice;
 }
@@ -95,10 +105,11 @@ int main()
         else if (choice == 4)
             centerLibrary.printAllPatrons();
         else if (choice == 5)
+            checkOutBook(centerLibrary);
 
-            choice = userChoice();
+        // gets user choice
+        choice = userChoice();
     }
-    cout << "Ending Program\n"
-         << endl;
+    cout << "Ending Program\n";
     return 0;
 }

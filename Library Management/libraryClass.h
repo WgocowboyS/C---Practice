@@ -24,8 +24,8 @@ class library{
     vector <patron> getAllPatrons();
     void printAllBooks();
     void printAllPatrons();
-    patron getPatronById(int id);
-    book getBookById(int id);
+    patron* getPatronById(int id);
+    book* getBookById(int id);
 
     //sets
     void addBook(book bookToAdd);

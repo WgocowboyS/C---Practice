@@ -24,28 +24,28 @@ vector<patron> library::getAllPatrons()
 }
 
 // returns -1 if not present in list
-patron library::getPatronById(int id)
+patron *library::getPatronById(int id)
 {
-    int index = -1;
+
     for (int i = 0; i < allPatrons.size(); i++)
     {
         if (id == allPatrons[i].getId())
-            index == i;
+        {
+            return &allPatrons[i];
+        }
     }
-
-    return allPatrons[index];
+    return nullptr;
 }
 
-book library::getBookById(int id)
+book *library::getBookById(int id)
 {
-    int index = -1;
+
     for (int i = 0; i < allLibraryBooks.size(); i++)
     {
         if (id == allLibraryBooks[i].getId())
-            index == i;
+            return &allLibraryBooks[i];
     }
-
-    return allLibraryBooks[index];
+        return nullptr;
 }
 
 // set functions

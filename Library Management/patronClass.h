@@ -24,7 +24,7 @@ class patron{
     int getId();
     vector<book> getCheckedOutBooks();
     void printPatron();
-
+    
     //set functions
     void checkOutBook(book bookToCheckOut);
     void returnBook(book bookToCheckOut);
