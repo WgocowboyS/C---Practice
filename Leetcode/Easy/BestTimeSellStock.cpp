@@ -39,7 +39,7 @@ int maxProfit(vector<int> day)
             // we want to sell here and then sell at the next stop
         }
 
-        if (maxCostIndex == minCostIndex)
+        if (maxCostIndex == minCostIndex)//this means we either are at the end, stock value will be same, so no profit
             return profit;
 
         // find profit for that time
