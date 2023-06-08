@@ -5,14 +5,14 @@ using namespace std;
 void fibIter()
 {
 
-    int goTo = 20;
+    int goTo = 5;
     int firstNum = 0;
     int secondNum = 1;
     int temp = secondNum;
     cout << "Num 0: " << firstNum << endl;
     cout << "Num 1:  " << secondNum << endl;
 
-    for (int i = 2; i < goTo; i++)
+    for (int i = 2; i <= goTo; i++)
     {
         temp = secondNum;
         secondNum = firstNum + secondNum;
@@ -45,7 +45,7 @@ int fibRecursive(int value)
 int main()
 {
 
-    // fibIter();
+     fibIter();
 
-    cout << fibRecursive(5) << endl;
+   // cout << fibRecursive(5) << endl;
 }
